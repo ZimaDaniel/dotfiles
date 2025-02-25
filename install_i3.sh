@@ -59,7 +59,9 @@ sudo apt install -y \
     zip \
     unzip \
     p7zip-full \
-    p7zip-rar
+    p7zip-rar \
+    lightdm \
+    lightdm-gtk-greeter
 
 # Instalace a nastavení i3
 echo "Instaluji a konfigurace i3..."
@@ -121,7 +123,11 @@ unzip /tmp/meslo-font.zip -d ~/.fonts
 rm /tmp/meslo-font.zip
 fc-cache -fv
 
-# Instalace nVidia ovladačů
+# Nastavení LightDM jako výchozí display manager
+echo "Nastavuji LightDM jako výchozí display manager..."
+sudo systemctl enable lightdm.service
+
+# Instalace nVidia ovladačů (probíhá na konci)
 echo "Kontrola grafické karty a instalace ovladačů..."
 if lspci | grep -i nvidia; then
     echo "nVidia grafická karta detekována, instalace ovladačů..."
