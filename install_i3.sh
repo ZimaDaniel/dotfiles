@@ -9,6 +9,12 @@ echo "Přidávám repozitáře non-free a contrib pro ovladače nVidia..."
 echo "deb http://deb.debian.org/debian/ stable main contrib non-free" | sudo tee -a /etc/apt/sources.list
 echo "deb-src http://deb.debian.org/debian/ stable main contrib non-free" | sudo tee -a /etc/apt/sources.list
 
+# Přidání repozitáře pro Brave
+echo "Přidávám repozitář pro Brave..."
+sudo apt install -y apt-transport-https curl
+curl -fsS https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo tee /etc/apt/trusted.gpg.d/brave.asc
+echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+
 # Aktualizace seznamu balíčků po přidání nových repozitářů
 echo "Aktualizuji seznam balíčků..."
 sudo apt update
@@ -94,10 +100,6 @@ sudo apt install -y lxappearance
 # Instalace a nastavení Thunar pro správu souborů
 echo "Instaluji a nastavím Thunar..."
 sudo apt install -y thunar thunar-archive-plugin
-
-# Instalace a nastavení Brave prohlížeče
-echo "Instaluji Brave..."
-sudo apt install -y brave-browser
 
 # Instalace Geany s pluginy
 echo "Instaluji Geany a pluginy..."
