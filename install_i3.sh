@@ -47,11 +47,6 @@ sudo apt install -y \
     vlc-plugin-* \
     mc \
     xinit \
-    fonts-dejavu \
-    fonts-dejavu-core \
-    fonts-dejavu-mono \
-    fonts-liberation \
-    fontconfig \
     htop \
     zsh \
     xsel \
