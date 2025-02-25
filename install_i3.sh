@@ -63,7 +63,7 @@ sudo apt install -y \
 
 # Instalace a nastavení i3
 echo "Instaluji a konfigurace i3..."
-sudo apt install -y i3 i3status i3lock i3bar
+sudo apt install -y i3 i3status i3lock
 
 # Instalace a nastavení Picom pro kompozici
 echo "Instaluji Picom..."
