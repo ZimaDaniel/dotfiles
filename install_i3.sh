@@ -15,6 +15,10 @@ sudo apt install -y apt-transport-https curl
 curl -fsS https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo tee /etc/apt/trusted.gpg.d/brave.asc
 echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
 
+# Přidání repozitáře pro qBittorrent
+echo "Přidávám repozitář pro qBittorrent..."
+sudo add-apt-repository -y ppa:qbittorrent-team/qbittorrent-stable
+
 # Aktualizace seznamu balíčků po přidání nových repozitářů
 echo "Aktualizuji seznam balíčků..."
 sudo apt update
@@ -56,7 +60,8 @@ sudo apt install -y \
     p7zip-full \
     p7zip-rar \
     lightdm \
-    lightdm-gtk-greeter
+    lightdm-gtk-greeter \
+    qbittorrent
 
 # Instalace a nastavení i3
 echo "Instaluji a konfigurace i3..."
