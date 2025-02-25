@@ -111,6 +111,14 @@ sudo apt install -y vlc vlc-plugin-*
 echo "Instaluji Midnight Commander..."
 sudo apt install -y mc
 
+# Instalace fontu Meslo
+echo "Stahuji a instalují font Meslo..."
+mkdir -p ~/.fonts
+curl -L https://github.com/andreberg/Meslo-Font/archive/refs/heads/master.zip -o /tmp/meslo-font.zip
+unzip /tmp/meslo-font.zip -d ~/.fonts
+rm /tmp/meslo-font.zip
+fc-cache -fv
+
 # Instalace nVidia ovladačů
 echo "Kontrola grafické karty a instalace ovladačů..."
 if lspci | grep -i nvidia; then
