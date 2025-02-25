@@ -4,6 +4,15 @@
 echo "Aktualizuji systém..."
 sudo apt update && sudo apt upgrade -y
 
+# Přidání repozitářů non-free a contrib pro ovladače nVidia
+echo "Přidávám repozitáře non-free a contrib pro ovladače nVidia..."
+echo "deb http://deb.debian.org/debian/ stable main contrib non-free" | sudo tee -a /etc/apt/sources.list
+echo "deb-src http://deb.debian.org/debian/ stable main contrib non-free" | sudo tee -a /etc/apt/sources.list
+
+# Aktualizace seznamu balíčků po přidání nových repozitářů
+echo "Aktualizuji seznam balíčků..."
+sudo apt update
+
 # Instalace základních nástrojů
 echo "Instaluji základní nástroje..."
 sudo apt install -y \
@@ -45,15 +54,6 @@ sudo apt install -y \
     unzip \
     p7zip-full \
     p7zip-rar
-
-# Detekce a instalace nVidia ovladačů
-echo "Kontrola grafické karty a instalace ovladačů..."
-if lspci | grep -i nvidia; then
-    echo "nVidia grafická karta detekována, instalace ovladačů..."
-    sudo apt install -y nvidia-driver nvidia-settings
-else
-    echo "nVidia grafická karta nenalezena, pokračuji bez ovladačů."
-fi
 
 # Instalace a nastavení i3
 echo "Instaluji a konfigurace i3..."
@@ -110,6 +110,15 @@ sudo apt install -y vlc vlc-plugin-*
 # Instalace Midnight Commander
 echo "Instaluji Midnight Commander..."
 sudo apt install -y mc
+
+# Instalace nVidia ovladačů
+echo "Kontrola grafické karty a instalace ovladačů..."
+if lspci | grep -i nvidia; then
+    echo "nVidia grafická karta detekována, instalace ovladačů..."
+    sudo apt install -y nvidia-driver nvidia-settings
+else
+    echo "nVidia grafická karta nenalezena, pokračuji bez ovladačů."
+fi
 
 # Restart systému pro zavedení změn
 echo "Instalace dokončena, restartuji systém..."
