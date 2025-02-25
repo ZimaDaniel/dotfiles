@@ -128,7 +128,8 @@ if lspci | grep -i nvidia; then
     echo "nVidia grafická karta detekována, instalace ovladačů..."
     sudo apt install -y nvidia-driver nvidia-settings
 else
-    echo "nVidia grafická karta nenalezena, pokračuji bez ovladačů."
+    echo "nVidia grafická karta nenalezena, pokračuji s instalací Intel ovladačů..."
+    sudo apt install -y xserver-xorg-video-intel
 fi
 
 # Restart systému pro zavedení změn
