@@ -61,7 +61,8 @@ sudo apt install -y \
     p7zip-rar \
     lightdm \
     lightdm-gtk-greeter \
-    qbittorrent
+    qbittorrent \
+    xfce4-screenshooter
 
 # Instalace a nastavení i3
 echo "Instaluji a konfigurace i3..."
