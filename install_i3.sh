@@ -116,7 +116,7 @@ sudo apt install -y vlc vlc-plugin-*
 echo "Instaluji Midnight Commander..."
 sudo apt install -y mc
 
-# Instalace fontu Meslo
+# Instalace font Meslo
 echo "Stahuji a instalují font Meslo..."
 mkdir -p ~/.fonts
 curl -L https://github.com/andreberg/Meslo-Font/archive/refs/heads/master.zip -o /tmp/meslo-font.zip
