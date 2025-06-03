@@ -5,11 +5,15 @@ exec --no-startup-id picom
 exec --no-startup-id xrdb -merge ~/.Xresources
 exec --no-startup-id sh -c "pgrep nm-applet || nm-applet"
 exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id setxkbmap -option ctrl:nocaps
+exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id xset s off         # Vypne screensaver
+exec --no-startup-id xset -dpms         # Vypne power management
+exec --no-startup-id xset s noblank     # Nezhasíná obrazovku
 
-font pango:MesloLGM Nerd Font Mono Bold 14
+
+font pango:Meslo LGM Nerd Font Bold 14
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -26,6 +30,8 @@ tiling_drag modifier titlebar
 bindsym $mod+Return exec alacritty
 bindsym $mod+q kill
 bindsym $mod+space exec rofi -show drun
+bindsym $mod+Shift+x exec i3lock --nofork --color=#1e1e2e
+
 
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -172,12 +178,10 @@ bar {
   status_command i3status -c /home/labros/.config/i3/i3status.conf
 }
 
-# Wallpaper
-exec nitrogen --restore
-
 # Shortcuts
 bindsym $mod+b exec brave-browser
 bindsym $mod+e exec thunar
+bindsym $mod+c exec geany
 
 # Create Log out, Reboot, Poweroff bindings
 mode "Exit (L)ogout, (R)eboot, (P)oweroff" {
